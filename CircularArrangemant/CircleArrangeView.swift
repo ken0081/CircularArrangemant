@@ -139,8 +139,7 @@ struct CircleTimerView: View {
         }
     }
 
-    
-    
+    //タイマカウント用の関数
     func runEveryInterval() {
         if 0 < timerCount {
             timerCount -= 0.1
@@ -149,7 +148,6 @@ struct CircleTimerView: View {
         }
     }
 }
-
 
 
 struct CircleArrangeView_Previews: PreviewProvider {
