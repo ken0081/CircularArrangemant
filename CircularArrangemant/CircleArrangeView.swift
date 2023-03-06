@@ -113,6 +113,9 @@ struct CircleTimerView: View {
     @State private var timerCount: Float = 0
     @State private var timer: Timer? = nil
     
+    //バイブレーション起動
+    let generator = UINotificationFeedbackGenerator()
+    
     var body: some View {
         Circle().stroke(lineWidth: 2)
             .frame(width: UIScreen.main.bounds.width / 3.5)
@@ -144,6 +147,8 @@ struct CircleTimerView: View {
         if 0 < timerCount {
             timerCount -= 0.1
         } else {
+            //タイマアップでバイブを動かす
+            generator.notificationOccurred(.success)
             timer?.invalidate() // タイマ削除
         }
     }
